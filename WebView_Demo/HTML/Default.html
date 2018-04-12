@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>xpath test </title>
+    <script type="text/javascript">
+        //实现不需要等window.onLoad事件后才可以执行相关的js函数
+        //实现可以在面页执行前注入JS函数
+        var iosfunc = iosfunc();
+        alert(iosfunc);
+        
+    	function test() {
+    		UC_Client_Handle.javascriptBridge('{"name":"banbao"}');
+    	}
+    </script>
+</head>
+<body>
+	<div onclick="test()">test</div>
+</body>
+</html>

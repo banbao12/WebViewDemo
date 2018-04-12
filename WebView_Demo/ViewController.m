@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UCWebViewController.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationController.navigationBar.hidden = YES;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 200.f, 150.f, 50.f);
+    [button setTitle:@"Click" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
+- (void)btnClick:(id)sender {
+    UCWebViewController *webviewController = [[UCWebViewController alloc] init];
+    webviewController.requestUrl = @"Default.html";
+    [self.navigationController pushViewController:webviewController animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-
 @end
